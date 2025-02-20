@@ -57,7 +57,7 @@ agatha_test/
 
 ## Notes
 - L'environnement virtuel (`env`) est créé automatiquement
-- La librairie Browser et ses dépendances sont installées automatiquement
+- La librairie Browser (Playwright) et ses dépendances sont installées automatiquement
 - Les résultats des tests seront générés dans le dossier courant
 
 ## Rapport de Test
