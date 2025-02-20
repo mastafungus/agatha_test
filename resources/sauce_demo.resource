@@ -7,6 +7,7 @@ Variables  ../test_objects/TO_sauce.py
 
 *** Variables ***
 
+${PRESENTER_MODE}  ${False}
 ${URL}  https://www.saucedemo.com/
 ${BROWSER}  chromium
 ${USERNAME}  standard_user
@@ -34,11 +35,18 @@ Login
   [Documentation]  Connexion à l'application
   [Arguments]  ${USERNAME}  ${PASSWORD}
   Wait For Elements State  ${TO_HOME_PAGE}[LBL_SWAG_LABS]  visible  300
-  Input Text  ${TO_HOME_PAGE}[FLD_USER_NAME]  ${USERNAME}
-  Input Text  ${TO_HOME_PAGE}[FLD_PASSWORD]  ${PASSWORD}
+  Wait For And Input Text  ${TO_HOME_PAGE}[FLD_USER_NAME]  ${USERNAME}
+  Wait For And Input Text  ${TO_HOME_PAGE}[FLD_PASSWORD]  ${PASSWORD}
   Click  ${TO_HOME_PAGE}[BTN_LOGIN]
 
-Input Text
+Logout
+  [Documentation]  Déconnexion de l'application
+  Wait For Elements State  ${TO_PRODUCTS_PAGE}[LBL_PRODUCT_SORT_CTN]  visible  300
+  Click  ${TO_PRODUCTS_PAGE}[BTN_MENU]
+  Click  ${TO_PRODUCTS_PAGE}[BTN_LOGOUT]
+  Wait For Elements State  ${TO_HOME_PAGE}[LBL_SWAG_LABS]  visible  300
+
+Wait For And Input Text
   [Documentation]  Permet de valoriser le champ passé dans le paramètre ``Element`` avec la valeur ``Value`` en
   ...  vérifiant au préalable sa présence dans la page. ``Timeout`` définit le temps d'attente en secondes avant de
   ...  renvoyer un échec. Permet de traiter des données cryptées avec CryptoLibrary si l'environnement d'exécution est
@@ -46,7 +54,3 @@ Input Text
   [Arguments]  ${Element}  ${Value}  ${Timeout}=5
   Wait For Elements State  ${Element}  visible  ${Timeout}
   Fill Text  ${Element}  ${Value}
-
-Next Action
-  [Documentation]  Action suivante
-  Wait For Elements State  ${TO_PRODUCTS_PAGE}[LBL_PRODUCT_SORT_CTN]  visible  300

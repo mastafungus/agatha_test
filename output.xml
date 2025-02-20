@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 7.1 (Python 3.10.10 on win32)" generated="2025-02-19T17:46:48.467385" rpa="false" schemaversion="5">
+<suite id="s1" name="Agatha Test" source="C:\Users\julien.becheny\workspace\agatha_test">
+<suite id="s1-s1" name="Tests" source="C:\Users\julien.becheny\workspace\agatha_test\tests">
+<suite id="s1-s1-s1" name="Test A  Renommer" source="C:\Users\julien.becheny\workspace\agatha_test\tests\test_a _renommer.robot">
+<test id="s1-s1-s1-t1" name="Test A Renommer" line="12">
+<kw name="Browser Setup" owner="sauce_demo" type="SETUP">
+<kw name="New Browser" owner="Browser">
+<msg time="2025-02-19T17:46:49.199323" level="INFO">{"browser": "chromium", "headless": false, "chromiumSandbox": false, "devtools": false, "handleSIGHUP": true, "handleSIGINT": true, "handleSIGTERM": true, "slowMo": 0.0, "timeout": 30000.0, "tracesDir": "C:\\Users\\julien.becheny\\workspace\\agatha_test\\browser\\traces\\972cf464-e601-4126-8917-e57721f63699"}</msg>
+<msg time="2025-02-19T17:46:50.793504" level="INFO">Successfully created browser with options: {"browser":"chromium","headless":false,"chromiumSandbox":false,"devtools":false,"handleSIGHUP":true,"handleSIGINT":true,"handleSIGTERM":true,"slowMo":0,"timeout":30000,"tracesDir":"C:\\Users\\julien.becheny\\workspace\\agatha_test\\browser\\traces\\972cf464-e601-4126-8917-e57721f63699"}</msg>
+<arg>${Browser}</arg>
+<arg>headless=false</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new playwright Browser with specified options.</doc>
+<status status="PASS" start="2025-02-19T17:46:49.199323" elapsed="1.594181"/>
+</kw>
+<kw name="New Context" owner="Browser">
+<msg time="2025-02-19T17:46:50.794504" level="INFO">{
+  "acceptDownloads": true,
+  "bypassCSP": false,
+  "forcedColors": "none",
+  "ignoreHTTPSErrors": false,
+  "javaScriptEnabled": true,
+  "offline": false,
+  "reducedMotion": "no-preference",
+  "serviceWorkers": "allow",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  }
+}</msg>
+<msg time="2025-02-19T17:46:50.806164" level="INFO">Successfully created context. </msg>
+<msg time="2025-02-19T17:46:50.806164" level="INFO">{'acceptDownloads': True, 'bypassCSP': False, 'forcedColors': 'none', 'ignoreHTTPSErrors': False, 'javaScriptEnabled': True, 'offline': False, 'reducedMotion': 'no-preference', 'serviceWorkers': 'allow', 'viewport': {'width': 1280, 'height': 720}}</msg>
+<arg>viewport={'width': 1280, 'height': 720}</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Create a new BrowserContext with specified options.</doc>
+<status status="PASS" start="2025-02-19T17:46:50.793504" elapsed="0.013659"/>
+</kw>
+<kw name="New Page" owner="Browser">
+<msg time="2025-02-19T17:46:52.862793" level="INFO">Successfully initialized new page object and opened url: https://www.saucedemo.com/</msg>
+<arg>${URL}</arg>
+<arg>wait_until=domcontentloaded</arg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Open a new Page.</doc>
+<status status="PASS" start="2025-02-19T17:46:50.807163" elapsed="2.055630"/>
+</kw>
+<arg>${URL}</arg>
+<arg>${BROWSER}</arg>
+<doc>Initialise le navigateur, le contexte et la fenêtre.</doc>
+<status status="PASS" start="2025-02-19T17:46:49.198322" elapsed="3.664471"/>
+</kw>
+<kw name="Login" owner="sauce_demo">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-02-19T17:46:52.886086" level="INFO">Waited for Element with selector //div[@class='login_logo'] at state visible</msg>
+<arg>${TO_HOME_PAGE}[LBL_SWAG_LABS]</arg>
+<arg>visible</arg>
+<arg>300</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-02-19T17:46:52.863764" elapsed="0.022322"/>
+</kw>
+<kw name="Input Text" owner="sauce_demo">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-02-19T17:46:52.892752" level="INFO">Waited for Element with selector (//input[@id='user-name'])[1] at state visible</msg>
+<arg>${Element}</arg>
+<arg>visible</arg>
+<arg>${Timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-02-19T17:46:52.886086" elapsed="0.007689"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-02-19T17:46:52.894358" level="INFO">Fills the text 'standard_user' in the given field.</msg>
+<arg>${Element}</arg>
+<arg>${Value}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-02-19T17:46:52.893775" elapsed="0.016582"/>
+</kw>
+<arg>${TO_HOME_PAGE}[FLD_USER_NAME]</arg>
+<arg>${USERNAME}</arg>
+<doc>Permet de valoriser le champ passé dans le paramètre ``Element`` avec la valeur ``Value`` en
+vérifiant au préalable sa présence dans la page. ``Timeout`` définit le temps d'attente en secondes avant de
+renvoyer un échec. Permet de traiter des données cryptées avec CryptoLibrary si l'environnement d'exécution est
+correctement paramêtré.</doc>
+<status status="PASS" start="2025-02-19T17:46:52.886086" elapsed="0.025278"/>
+</kw>
+<kw name="Input Text" owner="sauce_demo">
+<kw name="Wait For Elements State" owner="Browser">
+<msg time="2025-02-19T17:46:52.915261" level="INFO">Waited for Element with selector (//input[@id='password'])[1] at state visible</msg>
+<arg>${Element}</arg>
+<arg>visible</arg>
+<arg>${Timeout}</arg>
+<tag>PageContent</tag>
+<tag>Wait</tag>
+<doc>Waits for the element found by ``selector`` to satisfy state option.</doc>
+<status status="PASS" start="2025-02-19T17:46:52.911364" elapsed="0.003897"/>
+</kw>
+<kw name="Fill Text" owner="Browser">
+<msg time="2025-02-19T17:46:52.916266" level="INFO">Fills the text 'secret_sauce' in the given field.</msg>
+<arg>${Element}</arg>
+<arg>${Value}</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Clears and fills the given ``txt`` into the text field found by ``selector``.</doc>
+<status status="PASS" start="2025-02-19T17:46:52.916266" elapsed="0.012715"/>
+</kw>
+<arg>${TO_HOME_PAGE}[FLD_PASSWORD]</arg>
+<arg>${PASSWORD}</arg>
+<doc>Permet de valoriser le champ passé dans le paramètre ``Element`` avec la valeur ``Value`` en
+vérifiant au préalable sa présence dans la page. ``Timeout`` définit le temps d'attente en secondes avant de
+renvoyer un échec. Permet de traiter des données cryptées avec CryptoLibrary si l'environnement d'exécution est
+correctement paramêtré.</doc>
+<status status="PASS" start="2025-02-19T17:46:52.911364" elapsed="0.017617"/>
+</kw>
+<kw name="Click" owner="Browser">
+<arg>${TO_HOME_PAGE}[BTN_LOGIN]</arg>
+<tag>PageContent</tag>
+<tag>Setter</tag>
+<doc>Simulates mouse click on the element found by ``selector``.</doc>
+<status status="PASS" start="2025-02-19T17:46:52.929971" elapsed="0.101933"/>
+</kw>
+<arg>${username}</arg>
+<arg>${password}</arg>
+<doc>Connexion à l'application</doc>
+<status status="PASS" start="2025-02-19T17:46:52.863764" elapsed="0.168140"/>
+</kw>
+<kw name="Run Keywords" owner="BuiltIn" type="TEARDOWN">
+<kw name="Browser Teardown" owner="sauce_demo">
+<kw name="Close Page" owner="Browser">
+<msg time="2025-02-19T17:46:53.036416" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=966ca1a1-2a02-4937-9143-00d6b774aa8d",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=38296227-4f70-47ee-a128-9120ba5fb25a",
+        "activePage": "page=dcd6b6a3-1960-48bf-86d2-0624c94c31df",
+        "pages": [
+          {
+            "type": "page",
+            "title": "Swag Labs",
+            "url": "https://www.saucedemo.com/inventory.html",
+            "id": "page=dcd6b6a3-1960-48bf-86d2-0624c94c31df",
+            "timestamp": 1739983611.756
+          }
+        ]
+      }
+    ],
+    "activeContext": "context=38296227-4f70-47ee-a128-9120ba5fb25a",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-02-19T17:46:53.036416" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-02-19T17:46:53.038202" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-02-19T17:46:53.039208" level="INFO">Switching browser to browser=966ca1a1-2a02-4937-9143-00d6b774aa8d</msg>
+<msg time="2025-02-19T17:46:53.040717" level="INFO">Successfully changed active browser: browser=966ca1a1-2a02-4937-9143-00d6b774aa8d</msg>
+<msg time="2025-02-19T17:46:53.040717" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-02-19T17:46:53.043723" level="INFO">Returned active context id: CURRENT</msg>
+<msg time="2025-02-19T17:46:53.043723" level="INFO">Switching context to context=38296227-4f70-47ee-a128-9120ba5fb25a in CURRENT</msg>
+<msg time="2025-02-19T17:46:53.048237" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=966ca1a1-2a02-4937-9143-00d6b774aa8d",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=38296227-4f70-47ee-a128-9120ba5fb25a",
+        "activePage": "page=dcd6b6a3-1960-48bf-86d2-0624c94c31df",
+        "pages": [
+          {
+            "type": "page",
+            "title": "Swag Labs",
+            "url": "https://www.saucedemo.com/inventory.html",
+            "id": "page=dcd6b6a3-1960-48bf-86d2-0624c94c31df",
+            "timestamp": 1739983611.756
+          }
+        ]
+      }
+    ],
+    "activeContext": "context=38296227-4f70-47ee-a128-9120ba5fb25a",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-02-19T17:46:53.050236" level="INFO">Successfully changed active context: context=38296227-4f70-47ee-a128-9120ba5fb25a</msg>
+<msg time="2025-02-19T17:46:53.059873" level="INFO">Successfully closed Page with runBeforeUnload false</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the ``page`` in ``context`` in ``browser``.</doc>
+<status status="PASS" start="2025-02-19T17:46:53.032904" elapsed="0.026969"/>
+</kw>
+<kw name="Close Context" owner="Browser">
+<msg time="2025-02-19T17:46:53.062384" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=966ca1a1-2a02-4937-9143-00d6b774aa8d",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=38296227-4f70-47ee-a128-9120ba5fb25a",
+        "pages": []
+      }
+    ],
+    "activeContext": "context=38296227-4f70-47ee-a128-9120ba5fb25a",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-02-19T17:46:53.062384" level="INFO">Switching browser to CURRENT</msg>
+<msg time="2025-02-19T17:46:53.063383" level="INFO">Returned active browser id. CURRENT</msg>
+<msg time="2025-02-19T17:46:53.064382" level="INFO">Switching browser to browser=966ca1a1-2a02-4937-9143-00d6b774aa8d</msg>
+<msg time="2025-02-19T17:46:53.065381" level="INFO">Successfully changed active browser: browser=966ca1a1-2a02-4937-9143-00d6b774aa8d</msg>
+<msg time="2025-02-19T17:46:53.065381" level="INFO">Switching context to CURRENT in CURRENT</msg>
+<msg time="2025-02-19T17:46:53.067398" level="INFO">Returned active context id: CURRENT</msg>
+<msg time="2025-02-19T17:46:53.067398" level="INFO">Switching context to context=38296227-4f70-47ee-a128-9120ba5fb25a in CURRENT</msg>
+<msg time="2025-02-19T17:46:53.070413" level="INFO">[
+  {
+    "type": "chromium",
+    "id": "browser=966ca1a1-2a02-4937-9143-00d6b774aa8d",
+    "contexts": [
+      {
+        "type": "context",
+        "id": "context=38296227-4f70-47ee-a128-9120ba5fb25a",
+        "pages": []
+      }
+    ],
+    "activeContext": "context=38296227-4f70-47ee-a128-9120ba5fb25a",
+    "activeBrowser": true
+  }
+]</msg>
+<msg time="2025-02-19T17:46:53.072413" level="INFO">Successfully changed active context: context=38296227-4f70-47ee-a128-9120ba5fb25a</msg>
+<msg time="2025-02-19T17:46:53.117416" level="INFO">Successfully closed Context</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes a Context.</doc>
+<status status="PASS" start="2025-02-19T17:46:53.060869" elapsed="0.056547"/>
+</kw>
+<kw name="Close Browser" owner="Browser">
+<msg time="2025-02-19T17:46:53.271491" level="INFO">Closed browser</msg>
+<tag>BrowserControl</tag>
+<tag>Setter</tag>
+<doc>Closes the current browser.</doc>
+<status status="PASS" start="2025-02-19T17:46:53.117416" elapsed="0.154075"/>
+</kw>
+<doc>Ferme la page, le contexte et le navigateur courant.</doc>
+<status status="PASS" start="2025-02-19T17:46:53.031904" elapsed="0.239587"/>
+</kw>
+<arg>Browser Teardown</arg>
+<doc>Executes all the given keywords in a sequence.</doc>
+<status status="PASS" start="2025-02-19T17:46:53.031904" elapsed="0.239587"/>
+</kw>
+<status status="PASS" start="2025-02-19T17:46:49.195787" elapsed="4.076705"/>
+</test>
+<status status="PASS" start="2025-02-19T17:46:48.483223" elapsed="4.812180"/>
+</suite>
+<status status="PASS" start="2025-02-19T17:46:48.481219" elapsed="4.832021"/>
+</suite>
+<status status="PASS" start="2025-02-19T17:46:48.469426" elapsed="4.844826"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Agatha Test">Agatha Test</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1" name="Tests">Agatha Test.Tests</stat>
+<stat pass="1" fail="0" skip="0" id="s1-s1-s1" name="Test A  Renommer">Agatha Test.Tests.Test A  Renommer</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>
