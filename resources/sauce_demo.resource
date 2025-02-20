@@ -1,12 +1,13 @@
 *** Settings ***
 
-Library  Browser
+Library  Browser  enable_presenter_mode=${PRESENTER_MODE}
 
 Variables  ../test_objects/TO_sauce.py
 
 
 *** Variables ***
 
+${PRESENTER_MODE}    ${False}
 ${URL}  https://www.saucedemo.com/
 ${BROWSER}  chromium
 ${USERNAME}  standard_user

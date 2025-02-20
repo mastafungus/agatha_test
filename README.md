@@ -27,9 +27,23 @@ Ce projet contient un test automatisé simple utilisant Robot Framework et la li
    ```
 
 4. **Lancez les tests**
+   Mode normal (vitesse réelle) :
    ```bash
-   robot .
+   robot -v PRESENTER_MODE:False tests/
    ```
+
+   Mode présentation (vitesse réduite) :
+   ```bash
+   robot -v PRESENTER_MODE:True tests/
+   ```
+
+## Modes d'exécution
+
+Le test peut être exécuté en deux modes différents :
+
+- **Mode normal** : Exécution à vitesse réelle.
+- **Mode présentation** : Exécution ralentie avec mise en évidence visuelle des actions.
+
 
 ## Structure du Projet
 ```
