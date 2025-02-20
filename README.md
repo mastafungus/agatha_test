@@ -27,6 +27,7 @@ Ce projet contient un test automatisé simple utilisant Robot Framework et la li
    ```
 
 4. **Lancez les tests**
+
    Mode normal (vitesse réelle) :
    ```bash
    robot -v PRESENTER_MODE:False tests/
