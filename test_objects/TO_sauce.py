@@ -7,4 +7,6 @@ TO_HOME_PAGE = {  # Home Page
 
 TO_PRODUCTS_PAGE = {  # Products Page
   "LBL_PRODUCT_SORT_CTN": "//select[@class='product_sort_container']",
+  "BTN_MENU": "//button[@id='react-burger-menu-btn']",
+  "BTN_LOGOUT": "//a[@id='logout_sidebar_link']",
 }
