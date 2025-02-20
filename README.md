@@ -1,32 +1,52 @@
 # Test d'automatisation Web avec Robot Framework
 
-Ce projet contient un test automatisé simple utilisant Robot Framework et la librairie Browser (Playright).
+Ce projet contient un test automatisé simple utilisant Robot Framework et la librairie Browser (Playwright).
 
 ## Prérequis
-- Installer Python :
 
-Téléchargez et installer Python depuis [Python 3.10.11](https://www.python.org/downloads/release/python-31011/#:~:text=Windows)
+### Python
+- Téléchargez et installez [Python 3.10.11](https://www.python.org/downloads/release/python-31011/#:~:text=Windows)
+- Assurez-vous que Python est ajouté au PATH Windows lors de l'installation :
 
-Il est important que la version de python installée soit ajouté à la variable path de l’environnement Windows :
-![image](https://github.com/user-attachments/assets/22f85d47-099c-4bb7-af40-f50fe93422d7)
+![Add Python to PATH](https://github.com/user-attachments/assets/22f85d47-099c-4bb7-af40-f50fe93422d7)
 
-## Lancement du test
+## Installation et Exécution
 
-1. Clonez le dépôt :
-```bash
-git clone https://github.com/mastafungus/agatha_test
+1. **Clonez le dépôt**
+   ```bash
+   git clone https://github.com/mastafungus/agatha_test
+   cd agatha_test
+   ```
 
-2. Installation de robotframework et de la librairie browser (Playwright) :
-Exécuter le fichier install_execution_environment présent à la racine du projet dans chemin/vers/le/répertoire/agatha_test
+2. **Installez les dépendances**
+   - Exécutez le fichier `install_execution_environment.bat` présent à la racine du projet
 
-3. Se positionner sur le répertoire :
-```bash
-cd chemin/vers/le/répertoire/agatha_test
+3. **Activez l'environnement virtuel**
+   ```bash
+   env\Scripts\activate
+   ```
 
-4. Activez l'environnement virtuel :
-```bash
-chemin/vers/le/répertoire/agatha_test> env\Scripts\activate
+4. **Lancez les tests**
+   ```bash
+   robot .
+   ```
 
-5. Exécutez le test :
-```bash
-chemin/vers/le/répertoire/agatha_test> robot .
+## Structure du Projet
+```
+agatha_test/
+├── resources/          # Ressources Robot Framework
+├── test_objects/       # Objets de test
+├── tests/             # Fichiers de test
+└── README.md
+```
+
+## Notes
+- L'environnement virtuel (`env`) est créé automatiquement
+- La librairie Browser et ses dépendances sont installées automatiquement
+- Les résultats des tests seront générés dans le dossier courant
+
+## Rapport de Test
+Après l'exécution, vous trouverez les rapports suivants :
+- `log.html` : Journal détaillé des tests
+- `report.html` : Rapport de synthèse
+- `output.xml` : Résultats au format XML
