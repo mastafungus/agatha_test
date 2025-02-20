@@ -8,7 +8,10 @@ Test Setup  Browser Setup  ${URL}  ${BROWSER}
 Test Teardown  Browser Teardown
 
 
+*** Variables ***
+${PRESENTER_MODE}  ${False}
+
 *** Test Cases ***
-Test A Renommer
+Test Agatha
   Login  ${username}  ${password}
   Logout
