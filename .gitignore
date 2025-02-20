@@ -2,3 +2,6 @@ env/
 __pycache__/
 *.pyc
 playwright-log.txt
+log.html
+output.xml
+report.html
